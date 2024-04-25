@@ -2,14 +2,10 @@
 asm_func1:
     # write below this line 
     #######################
-    lw t0, 0(a7)
-    addi t0, t0, 13
-    beqz t0, _fail
-    li a0, 0
-    ret
-
-_fail:
-    li a0, 1
+    srai a7, a7, 13
+    li a0, 0x1
+    and a0, a0, a7
+    xori a0, a0, 1
 
     #######################
     # write above this line 
@@ -19,7 +15,8 @@ _fail:
 asm_func2:
     # write below this line 
     #######################
-
+    # a0 32-bit value
+    
 
 
     #######################
