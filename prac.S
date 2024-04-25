@@ -42,8 +42,15 @@ _prime:
 asm_func3:
     # write below this line 
     #######################
+    li t0, 0 # index
+    li t1, 1 # value to store
 
-    
+_loop_func3:
+    sw t1, 0(a0)
+    addi t0, t0, 1
+    addi t1, t1, 1
+    addi a0, a0, 4
+    blt t0, a1, _loop_func3
 
     #######################
     # write above this line 
