@@ -16,8 +16,23 @@ asm_func2:
     # write below this line 
     #######################
     # a0 32-bit value
-    
+    li t0, 2
+    blt a0, t0, _not_prime
+_loop:
+    rem t1, a0, t0
+    beqz t1, _not_prime
+    addi t0, t0, 1
+    li t2, 2
+    div t3, a0, t2
+    ble t0, t3, _loop
+    j _prime
 
+_not_prime:
+    li a0, 0
+    ret
+
+_prime:
+    li a0, 1
 
     #######################
     # write above this line 
